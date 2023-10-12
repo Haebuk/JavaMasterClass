@@ -1,11 +1,25 @@
 public class BankAccount {
-    private int accountNumber;
+    private String accountNumber;
     private double balance;
     private String customerName;
     private String email;
     private String phoneNumber;
 
-    public void setAccountNumber(int accountNumber) {
+    public BankAccount() {
+        System.out.println("Empty constructor called");
+    }
+
+    public BankAccount(String accountNumber, double balance, String customerName, String email,
+                       String phoneNumber) {
+        System.out.println("parameters called");
+        this.accountNumber = accountNumber;
+        this.balance = balance;
+        this.customerName = customerName;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+    }
+
+    public void setAccountNumber(String accountNumber) {
         this.accountNumber = accountNumber;
     }
 
@@ -25,7 +39,7 @@ public class BankAccount {
         this.phoneNumber = phoneNumber;
     }
 
-    public int getAccountNumber() {
+    public String getAccountNumber() {
         return accountNumber;
     }
 
