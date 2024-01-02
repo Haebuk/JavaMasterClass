@@ -20,7 +20,8 @@ public class Main {
 
 //        gettingElements(placesToVisit);
 
-        printItinerary3(placesToVisit);
+//        printItinerary3(placesToVisit);
+        testIterator(placesToVisit);
     }
 
 
@@ -75,7 +76,8 @@ public class Main {
         System.out.println("First Element = " + list.getFirst());
         System.out.println("Last Element = " + list.getLast());
 
-        System.out.println("Darwin is at position: " + list.indexOf("Darwin"));;
+        System.out.println("Darwin is at position: " + list.indexOf("Darwin"));
+        ;
         System.out.println("Melbourne is at position: " +
                 list.lastIndexOf("Melbourne"));
 
@@ -91,7 +93,7 @@ public class Main {
     public static void printItinerary(LinkedList<String> list) {
 
         System.out.println("Trip starts at " + list.getFirst());
-        for (int i=1; i<list.size(); i++) {
+        for (int i = 1; i < list.size(); i++) {
             System.out.println("--> From: " + list.get(i - 1) + " to " + list.get(i));
         }
         System.out.println("Trip ends at " + list.getLast());
@@ -119,5 +121,24 @@ public class Main {
             previousTown = town;
         }
         System.out.println("Trip ends at " + list.getLast());
+    }
+
+    private static void testIterator(LinkedList<String> list) {
+
+        var iterator = list.listIterator();
+        while (iterator.hasNext()) {
+//            System.out.println(iterator.next());
+            if (iterator.next().equals("Brisbane")) {
+//                iterator.remove();
+                iterator.add("Lake Wivenhoe");
+            }
+        }
+        while (iterator.hasPrevious()) {
+            System.out.println(iterator.previous());
+        }
+        System.out.println(list);
+
+        var iterator2 = list.listIterator(3);
+        System.out.println(iterator2.next());
     }
 }
